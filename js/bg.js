@@ -1,16 +1,20 @@
 var gDownloadUrls = new Map();
 var gDownloadFileName = new Map();
 var UPLOADWEBURL = "https://sm.ms/api/upload";
+var gRegs = new Array(".*draw\.io.*", ".*processon\.com.*");
 
 // Filter downloadItem by url
 function FilterUrls(url) {
-    var mReg = new RegExp(".*draw\.io.*", "g");
-    //var mReg = new RegExp(".*file.*", "g");
+    var found = false;
+    for (var i = 0; i < gRegs.length; i++) {
+        var mReg = new RegExp(gRegs[i], "g");
+        //var mReg = new RegExp(".*file.*", "g");
+        if (url.search(mReg) != -1)
+            found = true;
+        console.log("found:" + found);
+    }
 
-    if (url.search(mReg) != -1)
-        return true;
-
-    return false;
+    return found;
 }
 
 function CleanLocalFile(id) {
@@ -60,7 +64,7 @@ function Upload2SMMS(blob, id) {
 
 function GetLocalFileAndUpload(path, id) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET","file://" + path, true);
+    xhr.open("GET", "file://" + path, true);
     console.log("file://" + path);
     xhr.responseType = "blob";
     xhr.addEventListener("load", function () {
