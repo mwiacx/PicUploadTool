@@ -48,7 +48,7 @@ function Upload2SMMS(blob, id) {
         console.log(result);
         var imgUrl = result["data"]["url"];
         Write2Clipboard(imgUrl);
-        alert("PicUploadTool[Success]: image url is\n" + imgUrl);
+        alert("PicUploadTool[Success]: Image Url\n" + imgUrl);
     });
     xhr.addEventListener("error", function () {
         console.log("Upload2SMMS failed!");
@@ -60,7 +60,8 @@ function Upload2SMMS(blob, id) {
 
 function GetLocalFileAndUpload(path, id) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", path, true);
+    xhr.open("GET","file://" + path, true);
+    console.log("file://" + path);
     xhr.responseType = "blob";
     xhr.addEventListener("load", function () {
         console.log("GetLocalFile success!");
@@ -68,6 +69,7 @@ function GetLocalFileAndUpload(path, id) {
     });
     xhr.addEventListener("error", function () {
         console.log("GetLocalFile failed!");
+        console.log(xhr);
         CleanLocalFile(id);
         alert("PicUploadTool[Error]: Get local downloaded file failed!");
     });

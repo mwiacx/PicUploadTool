@@ -12,7 +12,7 @@
     "permissions": [
         "clipboardWrite",
         "downloads",
-        "file:///*",
+        "file://*",
         "storage"
     ],
     "manifest_version": 2
