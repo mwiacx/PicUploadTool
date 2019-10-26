@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>PicUploadTool插件选项</title>
+    <link type="text/css" rel="styleSheet" href="css/options.css">
+</head>
+
+<body>
+
+    <div class="mheader">
+        <h1>
+            PicUploadTool插件选项
+        </h1>
+    </div>
+    <div class="frame">
+        <div class="info">
+            <h2>使用说明：</h2>
+            <p>1. 本工具用于自动将从指定网站下载的图片上传到图库中。</p>
+            <p>2. 上传的生产的图床链接显示在通知窗口中，并自动复制到系统剪贴板。</p>
+        </div>
+        <div class="main">
+            <div>
+                <h3> 图片下载规则(TODO) </h3>
+                <div class="role-entry">
+                    <input type="checkbox" name="enableDrawIo" id="enableDrawIo" checked="true">
+                    <label> 启动对DrawIO下载图片支持 </label>
+                </div>
+                <div class="role-entry">
+                    <input type="checkbox" name="enableProcessOn" id="enableProcessOn">
+                    <label> 启动对ProcessOn下载图片支持 </label>
+                </div>
+                <div class="role-entry">
+                    <input type="checkbox" name="enableCustom" id="enableCustom">
+                    <label> 启动自定义规则支持，正则规则：(TODO) </label>
+                    <input></input>
+                    <button>保存</button>
+                </div>
+            </div>
+            <div>
+                <h3> 历史记录</h3>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/options.js"></script>
+</body>
+
+</html>
